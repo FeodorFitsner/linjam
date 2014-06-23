@@ -17,8 +17,8 @@
   ==============================================================================
 */
 
-#ifndef _CHANNELS_H_
-#define _CHANNELS_H_
+#ifndef __JUCE_HEADER_8B661D82CCFDE918__
+#define __JUCE_HEADER_8B661D82CCFDE918__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
@@ -76,4 +76,4 @@ private:
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif // _CHANNELS_H_
+#endif   // __JUCE_HEADER_8B661D82CCFDE918__

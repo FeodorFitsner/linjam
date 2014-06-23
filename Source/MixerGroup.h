@@ -17,13 +17,13 @@
   ==============================================================================
 */
 
-#ifndef _MIXERGROUP_H_
-#define _MIXERGROUP_H_
-
+#ifndef __JUCE_HEADER_5B4972CCB127A2E4__
+#define __JUCE_HEADER_5B4972CCB127A2E4__
 
 //[Headers]     -- You can add your own extra header files here --
 
 #include "JuceHeader.h"
+#include "Channels.h"
 
 //[/Headers]
 
@@ -46,6 +46,10 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+
+  Channels* addChannelsGroup(String channels_id) ;
+  void      addChannel(      Identifier channels_id , ValueTree channel_store) ;
+
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -56,12 +60,11 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 
-  Component* remoteChannels ;
+  ScopedPointer<Component> remotesContainer ;
 
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<Viewport> remotesViewport;
 
 
     //==============================================================================
@@ -71,4 +74,4 @@ private:
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif // _MIXERGROUP_H_
+#endif   // __JUCE_HEADER_5B4972CCB127A2E4__

@@ -94,7 +94,9 @@ void Channels::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.setColour (Colour (0xff101010));
+    g.fillAll (Colours::blueviolet);
+
+    g.setColour (Colours::cornflowerblue);
     g.fillRoundedRectangle (0.0f, 0.0f, static_cast<float> (getWidth() - 0), static_cast<float> (getHeight() - 0), 10.000f);
 
     g.setColour (Colours::white);
@@ -114,7 +116,7 @@ void Channels::resized()
   for (int channel_n = 0 ; channel_n < n_channels ; ++channel_n)
   {
     int child_n   = channel_n + GUI::N_NON_CHANNELS ;
-    int channel_x = GUI::MIXERGROUP_W(channel_n) ;
+    int channel_x = GUI::CHANNELS_W(channel_n) ;
     getChildComponent(child_n)->setTopLeftPosition(channel_x , GUI::CHANNEL_Y) ;
   }
 
@@ -131,7 +133,6 @@ void Channels::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_addButton] -- add your button handler code here..
 
       // TODO: prompt ?
-//       LinJam::AddLocalChannel(String(LinJam::Config->encodeChannelId("" , getNumChannels()))) ;
       LinJam::AddLocalChannel(LinJam::Config->encodeChannelId("" , getNumChannels() + 1 )) ;
 
         //[/UserButtonCode_addButton]
@@ -147,6 +148,8 @@ void Channels::buttonClicked (Button* buttonThatWasClicked)
 
 void Channels::addChannel(ValueTree channel_store)
 {
+DBG("Channels::addChannel(" + String(getComponentID()) + ") channel_id=" + String(channel_store.getType())) ;
+
   Channel* channel = new Channel(channel_store) ;
   this->addChildAndSetID(channel , String(channel_store.getType())) ;
   channel->toFront(false) ;
@@ -179,8 +182,8 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="String channels_id"
                  variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
                  overlayOpacity="0.330" fixedSize="0" initialWidth="132" initialHeight="276">
-  <BACKGROUND backgroundColour="0">
-    <ROUNDRECT pos="0 0 0M 0M" cornerSize="10" fill="solid: ff101010" hasStroke="1"
+  <BACKGROUND backgroundColour="ff8a2be2">
+    <ROUNDRECT pos="0 0 0M 0M" cornerSize="10" fill="solid: ff6495ed" hasStroke="1"
                stroke="1, mitered, butt" strokeColour="solid: ffffffff"/>
   </BACKGROUND>
   <LABEL name="channelsLabel" id="11f182b0c62d16d1" memberName="channelsLabel"

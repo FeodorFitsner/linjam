@@ -17,13 +17,13 @@
   ==============================================================================
 */
 
-#ifndef _MIXER_H_
-#define _MIXER_H_
-
+#ifndef __JUCE_HEADER_EB46FF61849DA256__
+#define __JUCE_HEADER_EB46FF61849DA256__
 
 //[Headers]     -- You can add your own extra header files here --
 
 #include "JuceHeader.h"
+#include "MixerGroup.h"
 #include "Channels.h"
 
 //[/Headers]
@@ -64,15 +64,21 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 
-  Channels* masterChannels;
-  Channels* localChannels;
+  ScopedPointer<Channels>   masterChannels ;
+  ScopedPointer<Channels>   localChannels ;
+  ScopedPointer<MixerGroup> mastersMixerGroup ;
+  ScopedPointer<MixerGroup> localsMixerGroup ;
+  ScopedPointer<MixerGroup> remotesMixerGroup ;
 
 
-  Channels* addChannels(String mixer_group_id) ;
+  Channels* addChannelsGroup(String channels_id) ;
 
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<Viewport> mastersViewport;
+    ScopedPointer<Viewport> localsViewport;
+    ScopedPointer<Viewport> remotesViewport;
 
 
     //==============================================================================
@@ -82,4 +88,4 @@ private:
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif // _MIXER_H_
+#endif   // __JUCE_HEADER_EB46FF61849DA256__

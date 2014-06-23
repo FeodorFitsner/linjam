@@ -134,13 +134,15 @@ void LinJam::UpdateGUI()
   Gui->loop->loopProgress = discrete_progress ; // linear_progress ;
   Gui->statusbar->setStatusR(String(bpi) + " bpi @ " + String(bpm) + " bpm") ;
 
+#if UPDATE_VU
+
   // master VU
   Gui->mixer->updateChannelVU(GUI::MASTER_MIXERGROUP_IDENTIFIER ,
-                              CONFIG::MASTER_KEY               ,
+                              CONFIG::MASTER_KEY                ,
                               VAL2DB(Client->GetOutputPeak())   ) ;
-  Gui->mixer->updateChannelVU(GUI::MASTER_MIXERGROUP_IDENTIFIER ,
-                              CONFIG::METRO_KEY                ,
-                              (discrete_progress * 140) - 120   ) ;
+  Gui->mixer->updateChannelVU(GUI::MASTER_MIXERGROUP_IDENTIFIER                      ,
+                              CONFIG::METRO_KEY                                      ,
+                              (discrete_progress * GUI::VU_RANGE) - GUI::VU_OFFSET   ) ;
 
   // local VU
   int channel_n = -1 ; int channel_idx ;
@@ -166,6 +168,8 @@ void LinJam::UpdateGUI()
       Gui->mixer->updateChannelVU(user_id , channel_id , channel_vu) ;
     }
   }
+
+#endif // UPDATE_VU
 }
 
 
@@ -324,6 +328,7 @@ if (client_status == NJClient::NJC_STATUS_PRECONNECT)
 void LinJam::HandleUserInfoChanged()
 {
 DEBUG_TRACE_REMOTE_CHANNELS_VB
+#if ADD_REMOTES || true
 
   // load remote users state
   int user_idx = -1 ; char* user_name ; float user_volume ; float user_pan ; bool user_muted ;
@@ -383,6 +388,8 @@ DEBUG_TRACE_ADD_REMOTE_USER
         AddChannel(user_id , channel_id , channel_idx) ;
     }
   }
+
+#endif // ADD_REMOTES
 }
 
 bool LinJam::IsRoomFull()

@@ -92,7 +92,7 @@ public:
   static const int PAD4    = PAD * 4 ;
   static const int LABEL_H = 12 ;
 
-  // main
+  // Main
   static const String AUDIO_INIT_ERROR_MSG ;
   static const String DISCONNECTED_STATUS_TEXT ;
   static const String ROOM_FULL_STATUS_TEXT ;
@@ -104,55 +104,71 @@ public:
   static const String IDLE_STATUS_TEXT ;
   static const String UNKNOWN_STATUS_TEXT ;
 
-  // contentComponent
+  // MainContent
   static const String CONTENT_GUI_ID ;
   static const int    CONTENT_W = 630 ;
   static const int    CONTENT_H = 470 ;
 
-  // blankComponent
-  static const String BLANK_GUI_ID ;
+  // Background
+  static const String BACKGROUND_GUI_ID ;
 
-  // LoginComponent
+  // Login
   static const String LOGIN_GUI_ID ;
   static const int    LOGIN_BUTTON_L = GUI::PAD ;
   static const int    LOGIN_BUTTON_T = GUI::PAD ;
   static const int    LOGIN_BUTTON_W = 96 ;
   static const int    LOGIN_BUTTON_H = 24 ;
 
-  // licenseComponent
+  // License
   static const String LICENSE_GUI_ID ;
 
-  // chatComponent
+  // Chat
   static const String CHAT_GUI_ID ;
   static const String SERVER_NICK ;
   static const String UNKNOWN_COMMAND_MSG ;
   static const String INVALID_PM_MSG ;
 
-  // ChannelComponents
+  // Channel
   static const String MASTER_CHANNEL_GUI_ID ;
   static const String METRO_CHANNEL_GUI_ID ;
   static const String XMIT_LABEL_TEXT ;
   static const String RCV_LABEL_TEXT ;
+  static const double VU_RANGE       = 140.0 ;
+  static const double VU_OFFSET      = 120.0 ;
   static const int    N_NON_CHANNELS = 2 ; // resizing compensation for additional elements
   static const int    CHANNEL_Y      = LABEL_H + PAD2 ;
   static const int    CHANNEL_W      = 60 ;
   static const int    CHANNEL_H      = 252 ;
 
-  // MixerGroupComponent
+  // Channels
+/* TODO: transition to paned views
+  static const String     MASTER_CHANNELS_GUI_ID ;
+  static const Identifier MASTER_CHANNELS_IDENTIFIER ;
+  static const String     LOCAL_CHANNELS_GUI_ID ;
+  static const Identifier LOCAL_CHANNELS_IDENTIFIER ;
+*/
+  static const int        CHANNELS_Y = PAD ;
+  static const int        CHANNELS_H = CHANNEL_H + LABEL_H + PAD3 ;
+  static       int        CHANNELS_W(int n_channels) { return PAD + (n_channels * (CHANNEL_W + PAD)) ; }
+  static const int        MASTERS_W   =                       PAD + (2          * (CHANNEL_W + PAD)) ;
+
+  // MixerGroup
   static const String     MASTER_MIXERGROUP_GUI_ID ;
   static const Identifier MASTER_MIXERGROUP_IDENTIFIER ;
   static const String     LOCAL_MIXERGROUP_GUI_ID ;
   static const Identifier LOCAL_MIXERGROUP_IDENTIFIER ;
-  static const int        MIXERGROUP_Y  = PAD ;
-  static const int        MIXERGROUP_H  = CHANNEL_H + LABEL_H + PAD3 ;
-  static       int        MIXERGROUP_W(int n_channels) { return PAD + (n_channels * (CHANNEL_W + PAD)) ; }
-  static const int        MASTERGROUP_W =                       PAD + (2          * (CHANNEL_W + PAD)) ;
+  static const String     REMOTES_MIXERGROUP_GUI_ID ;
+  static const Identifier REMOTES_MIXERGROUP_IDENTIFIER ;
+  static const int        MIXERGROUP_Y = PAD ;
+  static const int        MIXERGROUP_H = CHANNELS_H + PAD2 ;
+//   static       int        MIXERGROUP_W(int n_channels) { return (CHANNELS_W(n_channels) + PAD2) ; }
+  static const int        MASTERGROUP_W = MASTERS_W + PAD2 ;
 
-  // MixerComponent
+  // Mixer
   static const String MIXER_GUI_ID ;
   static const int    MIXER_H = MIXERGROUP_H + PAD2 ;
 
-  // statusComponent
+  // StatusBar
   static const String STATUS_GUI_ID ;
   static const int    STATUSBAR_H  = 24 ;
   static const int    STATUS_W     = 160 ;
@@ -160,7 +176,7 @@ public:
   static const int    STATUS_PAD_X = 8 ;
   static const int    STATUS_PAD_Y = 2 ;
 
-  // loopComponent
+  // Loop
   static const String LOOP_GUI_ID ;
   static const int    LOOP_X = STATUS_W + PAD3 ;
   static const int    LOOP_H = STATUS_H ;

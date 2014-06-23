@@ -64,7 +64,7 @@ Chat::Chat ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (622, 162);
+    setSize (622, 154);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -159,7 +159,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component, public TextEditor::Listener"
                  constructorParams="" variableInitialisers="" snapPixels="8" snapActive="1"
                  snapShown="1" overlayOpacity="0.330" fixedSize="0" initialWidth="622"
-                 initialHeight="162">
+                 initialHeight="154">
   <BACKGROUND backgroundColour="0">
     <ROUNDRECT pos="0 0 0M 0M" cornerSize="10" fill="solid: ff101010" hasStroke="1"
                stroke="1, mitered, butt" strokeColour="solid: ffffffff"/>
