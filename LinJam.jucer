@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="V5yqRw" name="LinJam" projectType="guiapp" version="0.0.1"
               bundleIdentifier="com.yourcompany.LinJam" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.0">
+              jucerVersion="3.1.1">
   <MAINGROUP id="dT83m5" name="LinJam">
     <GROUP id="{51F23963-7F0B-17B4-72A3-B564BDD36515}" name="Headers">
       <GROUP id="{898BA01D-C501-5789-07B4-1B9CFAD5762A}" name="Trace">

@@ -148,8 +148,8 @@ void License::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_alwaysButton] -- add your button handler code here..
 
-      bool should_always_agree = is_agreed = this->alwaysButton->getToggleState() ;
-      LinJam::Config->setServerShouldAgree(should_always_agree) ;
+      is_agreed = this->alwaysButton->getToggleState() ;
+      LinJam::Config->server.setProperty(CONFIG::SHOULD_AGREE_ID , is_agreed , nullptr) ;
 
         //[/UserButtonCode_alwaysButton]
     }

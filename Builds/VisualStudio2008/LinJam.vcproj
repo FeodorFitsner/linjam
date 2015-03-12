@@ -11,7 +11,6 @@
   <ToolFiles/>
   <Configurations>
     <Configuration Name="Release|Win32"
-                   OutputDirectory=".\Release"
                    ConfigurationType="1"
                    UseOfMFC="0"
                    ATLMinimizesCRunTimeLibraryUsage="false"
@@ -72,7 +71,6 @@
       <Tool Name="VCPostBuildEventTool"/>
     </Configuration>
     <Configuration Name="Debug|Win32"
-                   OutputDirectory=".\Debug"
                    ConfigurationType="1"
                    UseOfMFC="0"
                    ATLMinimizesCRunTimeLibraryUsage="false"
@@ -202,9 +200,9 @@
           </File>
           <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.h"/>
           <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
+          <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
           <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_UTF16.h"/>
           <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_UTF32.h"/>
-          <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
           <File RelativePath="..\..\JuceLibraryCode\modules\juce_core\text\juce_Identifier.cpp">
             <FileConfiguration Name="Release|Win32"
                                ExcludedFromBuild="true">
