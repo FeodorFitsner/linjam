@@ -1,0 +1,7 @@
+configuration: Release
+platform: Win32
+
+build:
+  project: builds\visualstudio2013\linjam.sln
+
+test: off
